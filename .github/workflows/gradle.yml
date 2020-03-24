@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Flowers {
+public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);        
+        int hris = Integer.parseInt(scanner.nextLine());
+        int roses = Integer.parseInt(scanner.nextLine());
+        int tiulips = Integer.parseInt(scanner.nextLine());
+        String season = scanner.nextLine();
+        char holiday = scanner.nextLine().charAt(0);        
+        double priceHris = 0;
+        double priceRoses = 0;
+        double priceTiulips = 0;        
+
+
+        if (season.equals("Spring") || season.equals("Summer")) {
+            priceHris = 2;
+            priceRoses = 4.10;
+            priceTiulips = 2.50;
+        }
+        else if (season.equals("Autumn") || season.equals("Winter")) {
+            priceHris = 3.75;
+            priceRoses = 4.50;
+            priceTiulips = 4.15;
+        }
+        double price = hris * priceHris + roses * priceRoses + tiulips * priceTiulips;        
+        if ('Y' == holiday) {
+            price = price + 0.15 * price;
+        }
+        if (tiulips > 7 && season.equals("Spring")) {
+            price = price - 0.05 * price;
+        }
+        if (roses >= 10 && season.equals("Winter")) {
+            price = price - 0.10 * price;
+        }
+        int allFlowers = tiulips + roses + hris;
+        if (allFlowers > 20) {
+            price = price - 0.2 * price;
+        }
+        double totalPrice = price + 2;
+        System.out.printf("%.2f", totalPrice);
+
+
+}}
+
+
